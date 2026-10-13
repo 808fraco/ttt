@@ -26,6 +26,13 @@ void setApellido(Persona *p, char a[]){
 void setMail(Persona *p, char m[]){
     strcpy(p->Mail, m);
 }
+void setDNI(Persona *p, int d){
+    p->dni = d;
+}
+//! Getters
+int getDNI(Persona p){
+    return(p.dni);
+}
 char* getNombre(Persona p){
     char *c;
     c = (char*)malloc(strlen(p.Nombre)+1);
@@ -37,6 +44,7 @@ char* getNombre(Persona p){
         return c;
     }
 }
+
 char* getApellido(Persona p){
     char *a;
     a = (char*)malloc(strlen(p.Apellido)+1);
@@ -48,5 +56,15 @@ char* getApellido(Persona p){
         return a;
     }
 }
-
+char* getMail(Persona p){
+    char *m;
+    m = (char*)malloc(strlen(p.Apellido)+1);
+    if(m==NULL){
+        printf("Memoria insuficiente.\n");
+        return NULL;
+    }else{
+        strcpy(m,p.Mail);
+        return m;
+    }
+}
 #endif // PERSONA_H_INCLUDED
